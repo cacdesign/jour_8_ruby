@@ -21,10 +21,10 @@ doc = Nokogiri::HTML(open(deputy_url))
     # J'utilise le xpath (position absolue du mail dans le tableau, 4eme ligne, 2ème colonne)en espérant qu'il soit le même sur chaque page de mairie
     # Une méthode plus sur consisterait à récupérer le mail en regex dans le tableau
     mail = doc.xpath('//*[@id="b1"]/ul[2]/li[1]/ul/li[1]').text
-    my_array << mail
+    
     
 
-return my_array
+return mail
 end
 
 #get_deputy_email("https://www.nosdeputes.fr/damien-abad") 
@@ -48,7 +48,7 @@ def get_deputy_urls(nb_deputy)
       deputy_url = "https://www.nosdeputes.fr/deputes#{little_url}"
   
       #Mail du député
-      puts mail_deputy = get_deputy_email(deputy_url).join
+      puts mail_deputy = get_deputy_email(deputy_url)
 
       #Prénom du député -> je me place dans le tableau global (/td/a) et pour chaque colonne, je récupère le (prenom, nom) que je splite, puis mets en forme en supprimant les parasites
       puts first_name_deputy = tr.css('td/a')[i].css('.list_nom').text.split(",")[1][1..20].delete_suffix("    ")
