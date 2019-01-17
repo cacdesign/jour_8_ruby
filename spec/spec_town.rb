@@ -2,19 +2,16 @@ require_relative '../lib/town'
 
 describe "Mon programme de scrapping Crypto fonctionne-t-il ?" do
     it "Le programme doit me retourner un array" do
-    expect(crypto_scrapper.is_a?Array).to eq(true)
+    expect(get_townhall_urls.is_a?Array).to eq(true)
      end
 
-    it "Le tableau doit contenir à minima 100 valeurs" do
-        expect(crypto_scrapper.length>100).to eq(true)
-       end
 
-    it "Le programme doit contenir à minima le Symbol BTC" do
-        expect(crypto_scrapper.join.include?('BTC')).to eq(true)   
+    it "Le programme doit contenir la mairie ABLEIGES" do
+        expect(get_townhall_urls.join.include?('ABLEIGES')).to eq(true)   
       end
 
-    it "Le programme doit contenir à minima le Symbol BTC" do
-        expect(crypto_scrapper[1]['BTC'].delete_prefix('$').to_i>3000).to eq(true)   
+    it "Le programme doit associer à la mairie ABLEIGES l'adresse mail mairie.ableiges95@wanadoo.fr " do
+        expect(get_townhall_urls[0]['ABLEIGES']).to eq("mairie.ableiges95@wanadoo.fr")   
       end
 
 

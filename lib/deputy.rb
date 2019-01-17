@@ -66,4 +66,4 @@ def get_deputy_urls(nb_deputy)
 return my_array   
 end
 
-get_deputy_urls(2)
+get_deputy_urls(7)
