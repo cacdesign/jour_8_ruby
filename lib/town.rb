@@ -20,7 +20,6 @@ end
 def get_townhall_urls
 
     my_array=[]
-    myhash_each = {}
   
     doc = Nokogiri::HTML(open("http://annuaire-des-mairies.com/val-d-oise.html"))
     

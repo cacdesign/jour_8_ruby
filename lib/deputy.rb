@@ -42,7 +42,7 @@ def get_deputy_urls(nb_deputy)
     tr = doc.xpath('//*[@id="corps_page"]/div/div')
     nb_deputy.times do |i|
       little_url = tr.css('td/a')[i]['href']
-      deputy_url = "https://www.nosdeputes.fr/deputes#{little_url}"
+      puts deputy_url = "https://www.nosdeputes.fr#{little_url}"
   
       #Mail du député
       puts mail_deputy = get_deputy_email(deputy_url)
@@ -63,4 +63,5 @@ def get_deputy_urls(nb_deputy)
 return my_array   
 end
 
-get_deputy_urls(7)
+get_deputy_urls(4)
+
