@@ -15,14 +15,11 @@ require 'open-uri'
 
 def get_deputy_email(deputy_url) 
 
-my_array = []
 doc = Nokogiri::HTML(open(deputy_url))
 
     # J'utilise le xpath (position absolue du mail dans le tableau, 4eme ligne, 2ème colonne)en espérant qu'il soit le même sur chaque page de mairie
     # Une méthode plus sur consisterait à récupérer le mail en regex dans le tableau
     mail = doc.xpath('//*[@id="b1"]/ul[2]/li[1]/ul/li[1]').text
-    
-    
 
 return mail
 end
